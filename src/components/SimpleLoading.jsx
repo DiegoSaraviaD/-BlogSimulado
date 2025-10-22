@@ -18,3 +18,4 @@ const SimpleLoading = ({ message = 'Cargando...' }) => {
 
 export default SimpleLoading;
 
+

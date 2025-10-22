@@ -16,3 +16,4 @@ const PulseLoading = ({ message = 'Cargando...' }) => {
 
 export default PulseLoading;
 
+

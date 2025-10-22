@@ -18,3 +18,4 @@ const WaveLoading = ({ message = 'Cargando...' }) => {
 
 export default WaveLoading;
 
+
