@@ -179,12 +179,6 @@ const Layout = () => {
             </div>
             
             <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2 text-cyan-400">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <span className="text-sm">Powered by React</span>
-              </div>
               <div className="flex items-center space-x-2 text-green-400">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -200,7 +194,7 @@ const Layout = () => {
               <svg className="inline w-4 h-4 mx-1 text-green-400" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
-              usando React y Tailwind CSS.
+              con tecnología avanzada.
             </p>
             <div className="mt-2 text-xs text-green-400">
               <span className="terminal-blink">_</span> Sistema activo - Acceso autorizado
