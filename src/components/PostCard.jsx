@@ -7,7 +7,7 @@ const PostCard = ({ post }) => {
       to={`/post/${post.id}`}
       className="block group fade-in-up hover-lift"
     >
-      <div className="hacker-terminal rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 p-6 h-full flex flex-col relative overflow-hidden hover-glow">
+      <div className="hacker-terminal rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 p-6 h-80 flex flex-col relative overflow-hidden hover-glow">
         {/* Efecto de terminal */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
@@ -30,8 +30,8 @@ const PostCard = ({ post }) => {
         </div>
 
         {/* Contenido del post */}
-        <div className="flex-1 relative z-10">
-          <p className="text-cyan-400 text-sm leading-relaxed line-clamp-3 group-hover:text-green-400 transition-colors duration-300">
+        <div className="flex-1 relative z-10 flex flex-col justify-center">
+          <p className="text-cyan-400 text-sm leading-relaxed line-clamp-4 group-hover:text-green-400 transition-colors duration-300">
             {post.body}
           </p>
         </div>
