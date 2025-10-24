@@ -9,21 +9,613 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Modo oscuro (por defecto) */
+body.dark {
+  background: #0a0a0a;
+  color: #00ff00;
+}
+
+/* Modo claro */
+body.light {
+  background: #f8fafc;
+  color: #1a202c;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Utilidades personalizadas para el blog */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Efectos hacker/cyberpunk */
+.hacker-glass {
+  background: rgba(0, 255, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hacker-terminal {
+  background: #000;
+  border: 2px solid #00ff00;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 0, 0.5),
+    inset 0 0 10px rgba(0, 255, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hacker-panel {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Modo claro - estilos alternativos */
+body.light .hacker-glass {
+  background: rgba(30, 64, 175, 0.1);
+  border: 1px solid #1e40af;
+  box-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
+}
+
+body.light .hacker-terminal {
+  background: #ffffff;
+  border: 2px solid #1e40af;
+  box-shadow: 
+    0 0 10px rgba(30, 64, 175, 0.3),
+    inset 0 0 10px rgba(30, 64, 175, 0.1);
+}
+
+body.light .terminal-body {
+  color: #1a202c;
+}
+
+body.light .terminal-header {
+  background: #1e40af;
+  color: #ffffff;
+}
+
+body.light .hacker-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #1e40af;
+  box-shadow: 0 0 15px rgba(30, 64, 175, 0.2);
+}
+
+/* Modo claro - colores de texto */
+body.light .text-green-400 {
+  color: #1e40af !important;
+}
+
+body.light .text-cyan-400 {
+  color: #4338ca !important;
+}
+
+body.light .text-white {
+  color: #1a202c !important;
+}
+
+body.light .text-white\/80 {
+  color: #2d3748 !important;
+}
+
+body.light .text-white\/70 {
+  color: #4a5568 !important;
+}
+
+body.light .text-white\/60 {
+  color: #718096 !important;
+}
+
+/* Modo claro - textos específicos */
+body.light .text-gray-600 {
+  color: #2d3748 !important;
+}
+
+body.light .text-gray-500 {
+  color: #4a5568 !important;
+}
+
+body.light .text-gray-400 {
+  color: #718096 !important;
+}
+
+/* Modo claro - bordes y efectos */
+body.light .border-green-400 {
+  border-color: #1e40af !important;
+}
+
+body.light .bg-green-400\/20 {
+  background-color: rgba(30, 64, 175, 0.2) !important;
+}
+
+body.light .bg-green-400\/10 {
+  background-color: rgba(30, 64, 175, 0.1) !important;
+}
+
+body.light .hover\:text-green-400:hover {
+  color: #1e40af !important;
+}
+
+body.light .hover\:bg-green-400\/10:hover {
+  background-color: rgba(30, 64, 175, 0.1) !important;
+}
+
+/* Modo claro - avatares y elementos decorativos */
+body.light .bg-black {
+  background-color: #ffffff !important;
+}
+
+body.light .text-green-400 {
+  color: #1e40af !important;
+}
+
+/* Modo claro - efectos de brillo */
+body.light .hacker-glow {
+  text-shadow: 0 0 10px rgba(30, 64, 175, 0.5), 0 0 20px rgba(30, 64, 175, 0.3), 0 0 30px rgba(30, 64, 175, 0.1);
+}
+
+body.light .hacker-pulse {
+  animation: hacker-pulse-light 2s ease-in-out infinite;
+}
+
+@keyframes hacker-pulse-light {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(30, 64, 175, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.6), 0 0 30px rgba(30, 64, 175, 0.4);
+  }
+}
+
+/* Modo claro - mejoras de contraste */
+body.light .prose {
+  color: #2d3748 !important;
+}
+
+body.light .prose p {
+  color: #2d3748 !important;
+  line-height: 1.7;
+}
+
+body.light .prose h1,
+body.light .prose h2,
+body.light .prose h3 {
+  color: #1a202c !important;
+}
+
+/* Modo claro - elementos de formulario */
+body.light input,
+body.light textarea,
+body.light select {
+  background-color: #ffffff;
+  border-color: #1e40af;
+  color: #1a202c;
+}
+
+body.light input:focus,
+body.light textarea:focus,
+body.light select:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* Modo claro - elementos de estadísticas */
+body.light .w-12.h-12.bg-black {
+  background-color: #ffffff !important;
+}
+
+body.light .w-12.h-12.border-2.border-green-400 {
+  border-color: #1e40af !important;
+}
+
+body.light .w-12.h-12.border-2.border-cyan-400 {
+  border-color: #4338ca !important;
+}
+
+/* Modo claro - botones y elementos interactivos */
+body.light .bg-green-400\/20 {
+  background-color: rgba(30, 64, 175, 0.2) !important;
+}
+
+body.light .hover\:bg-green-400\/30:hover {
+  background-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+body.light .border-green-400 {
+  border-color: #1e40af !important;
+}
+
+/* Modo claro - iconos en elementos de estadísticas */
+body.light .w-12.h-12 .text-green-400 {
+  color: #1e40af !important;
+}
+
+body.light .w-12.h-12 .text-cyan-400 {
+  color: #4338ca !important;
+}
+
+/* Modo claro - textos en estadísticas */
+body.light .text-green-400.font-semibold {
+  color: #1e40af !important;
+}
+
+body.light .text-cyan-400.text-sm {
+  color: #4338ca !important;
+}
+
+body.light .text-green-400.text-sm {
+  color: #1e40af !important;
+}
+
+/* Modo claro - botón de actualizar */
+body.light .bg-green-400\/20.text-green-400 {
+  background-color: rgba(30, 64, 175, 0.2) !important;
+  color: #1e40af !important;
+}
+
+body.light .hover\:bg-green-400\/30:hover {
+  background-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+body.light .border.border-green-400 {
+  border-color: #1e40af !important;
+}
+
+/* Modo claro - footer */
+body.light .border-t.border-green-400 {
+  border-top-color: #1e40af !important;
+}
+
+body.light .text-cyan-400.text-sm {
+  color: #4338ca !important;
+}
+
+body.light .text-green-400.text-xs {
+  color: #1e40af !important;
+}
+
+/* Modo claro - iconos dentro de avatares */
+body.light .w-14.h-14 .text-green-400,
+body.light .w-12.h-12 .text-green-400 {
+  color: #1e40af !important;
+}
+
+body.light .w-14.h-14 .text-cyan-400,
+body.light .w-12.h-12 .text-cyan-400 {
+  color: #4338ca !important;
+}
+
+/* Modo claro - iconos del header */
+body.light .w-8.h-8 .text-green-400 {
+  color: #1e40af !important;
+}
+
+body.light .w-8.h-8 .text-cyan-400 {
+  color: #4338ca !important;
+}
+
+/* Gradientes hacker */
+.gradient-hacker {
+  background: linear-gradient(135deg, #00ff00 0%, #00ffff 100%);
+}
+
+.gradient-cyber {
+  background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);
+}
+
+.gradient-matrix {
+  background: linear-gradient(135deg, #0a0a0a 0%, #00ff00 50%, #0a0a0a 100%);
+}
+
+/* Animaciones hacker/cyberpunk */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hacker-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Clases de animación hacker */
+.glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+.matrix-rain {
+  animation: matrix-rain 3s linear infinite;
+}
+
+.terminal-blink {
+  animation: terminal-blink 1s ease-in-out infinite;
+}
+
+.hacker-pulse {
+  animation: hacker-pulse 2s ease-in-out infinite;
+}
+
+.scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+.data-stream {
+  animation: data-stream 3s ease-in-out infinite;
+}
+
+.terminal-typing {
+  animation: terminal-typing 2s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00ff00;
+}
+
+.hacker-glow {
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+}
+
+.cyber-border {
+  border: 1px solid #00ff00;
+  box-shadow: 
+    0 0 10px rgba(0, 255, 0, 0.5),
+    inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+/* Efectos de hover mejorados */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Estilos para el scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Mejoras para la accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Efectos de fondo hacker */
+.hacker-bg {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+  transition: all 0.3s ease;
+}
+
+.hacker-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+  animation: matrix-rain 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Modo claro - fondo limpio */
+body.light .hacker-bg {
+  background: #f8fafc;
+}
+
+body.light .hacker-bg::before {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+}
+
+/* Efectos de terminal */
+.terminal-window {
+  background: #000;
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.5),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal-header {
+  background: #00ff00;
+  color: #000;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+.terminal-body {
+  padding: 16px;
+  color: #00ff00;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Efectos de glitch */
+.glitch-text {
+  position: relative;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: glitch 0.3s ease-in-out infinite;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.glitch-text::after {
+  animation: glitch 0.3s ease-in-out infinite reverse;
+  color: #00ffff;
+  z-index: -2;
+}
+
+/* Efectos de matrix */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.matrix-char {
+  position: absolute;
+  color: #00ff00;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  animation: matrix-rain 3s linear infinite;
 }
 
 

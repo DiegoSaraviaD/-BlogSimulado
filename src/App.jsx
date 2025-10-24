@@ -1,16 +1,16 @@
 import { RouterProvider } from 'react-router-dom';
-import { AuthProvider } from './features/auth/context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import router from './router';
 
 /**
  * Componente principal de la aplicación
- * Envuelve toda la app con el AuthProvider para gestión global de autenticación
+ * Aplicación de blog simulado
  */
 function App() {
   return (
-    <AuthProvider>
+    <ThemeProvider>
       <RouterProvider router={router} />
-    </AuthProvider>
+    </ThemeProvider>
   );
 }
 
